@@ -6,7 +6,10 @@ begin
   Jeweler::Tasks.new do |gem|
     gem.name = "amp-core"
     gem.summary = %Q{The core plugin for Amp. Necessary for Amp to function.}
-    gem.description = %Q{TODO: longer description of your gem}
+    gem.description = <<-EOF
+Amp's required plugin, providing core functionality (such as repository detection
+and amp-specific command validations) to all other plugins.
+EOF
     gem.email = "michael.j.edgar@dartmouth.edu"
     gem.homepage = "http://github.com/michaeledgar/amp-core"
     gem.authors = ["Michael Edgar"]
