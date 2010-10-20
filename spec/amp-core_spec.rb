@@ -1,7 +1,11 @@
 require File.expand_path(File.dirname(__FILE__) + '/spec_helper')
 
-describe "AmpCore" do
-  it "fails" do
-    fail "hey buddy, you should probably rename this file and start specing for real"
+describe "amp-core" do
+  it "should have a plugin constant: Amp::Plugins::Core" do
+    result = nil
+    Amp::Plugins.class_eval do
+      result = const_defined?(:Core)
+    end
+    result.should be_true
   end
 end

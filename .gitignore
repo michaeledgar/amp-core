@@ -20,5 +20,4 @@ pkg
 
 ## PROJECT::SPECIFIC
 .hg*
-.hg*
 *.gemspec
