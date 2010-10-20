@@ -18,6 +18,7 @@ module Amp
     class Base
       def self.has_repo
         include Core::RepositoryLoading
+        opt :repository, "The path to the repository to use", :short => "-R"
       end
     end
   end

@@ -48,5 +48,17 @@ describe Amp::Core::RepositoryLoading do
       (class << Amp::Command::Base; self; end).included_modules.should_not
           include(Amp::Core::RepositoryLoading::ClassMethods)
     end
+    
+    it "adds a :repository option when called" do
+      opts = @class_with.options
+      repo_opt = opts.find {|name, desc, config| name == :repository }
+      repo_opt.should_not be_nil
+    end
+    
+    it "lacks a :repository option when not called" do
+      opts = @class_without.options
+      repo_opt = opts.find {|name, desc, config| name == :repository }
+      repo_opt.should be_nil
+    end
   end
 end
