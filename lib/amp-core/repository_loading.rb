@@ -14,9 +14,11 @@ module Amp
     end
   end
 
-  class Command
-    def self.has_repo
-      include Core::RepositoryLoading
+  module Command
+    class Base
+      def self.has_repo
+        include Core::RepositoryLoading
+      end
     end
   end
 end

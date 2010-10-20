@@ -7,6 +7,8 @@ require 'amp-core'
 require 'spec'
 require 'spec/autorun'
 
+Amp::Plugins::Core.new.load!
+
 Spec::Runner.configure do |config|
   
 end
