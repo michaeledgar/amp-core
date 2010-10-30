@@ -42,17 +42,10 @@ module Amp
           attr_accessor :all_pickers
         
           ##
-          # Returns whether or not there is a repository in the given directory. This
-          # picker should only be responsible for one type of repository - git, svn, hg,
-          # etc. The given path could be deep inside a repository, and must look in parent
-          # directories for the root of the VCS repository.
-          #
-          # @param [String] path the path in which to search for a repository
-          # @return [Boolean] is there a repository in this directory (or parent directories)?
-          def repo_in_dir?(path)
-            raise NotImplementedError.new("repo_in_dir? must be implemented in a concrete subclass.")
+          # Iterate over every RepoPicker in the system.
+          def each(*args, &block)
+            @all_pickers.each(*args, &block)
           end
-          alias_method :repo_in_url?, :repo_in_dir?
         
           private
         
@@ -68,6 +61,19 @@ module Amp
             all_pickers << subclass.new
           end
         end
+      
+        ##
+        # Returns whether or not there is a repository in the given directory. This
+        # picker should only be responsible for one type of repository - git, svn, hg,
+        # etc. The given path could be deep inside a repository, and must look in parent
+        # directories for the root of the VCS repository.
+        #
+        # @param [String] path the path in which to search for a repository
+        # @return [Boolean] is there a repository in this directory (or parent directories)?
+        def repo_in_dir?(path)
+          raise NotImplementedError.new("repo_in_dir? must be implemented in a concrete subclass.")
+        end
+        alias_method :repo_in_url?, :repo_in_dir?
 
         ##
         # Returns a repository object for the given path. Should respond to the standard repository
@@ -81,12 +87,6 @@ module Amp
         # @return [AbstractLocalRepository] the repository for the given URL
         def pick(config, path = '', create = false)
           raise NotImplementedError.new("repo_in_dir? must be implemented in a concrete subclass.")
-        end
-      
-        ##
-        # Iterate over every RepoPicker in the system.
-        def each(*args, &block)
-          @all_pickers.each(*args, &block)
         end
       end
     end
