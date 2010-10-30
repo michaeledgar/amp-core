@@ -5,6 +5,6 @@ class Amp::Plugins::Core < Amp::Plugins::Base
   
   def load!
     puts "Loading amp-core..."
-    require 'amp-core/repository_loading'
+    require 'amp-core/command_ext/repository_loading'
   end
 end
