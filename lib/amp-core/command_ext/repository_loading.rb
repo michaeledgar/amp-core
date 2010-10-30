@@ -9,10 +9,12 @@ module Amp
 
       end
       module InstanceMethods
-        def repository
+        DEFAULT_OPTS = {:create => false}
+        def repository(repo_opts=DEFAULT_OPTS)
+          repo_opts = DEFAULT_OPTS.merge(repo_opts)
           path = options[:repository]
           # pick a repo based on this
-          
+          return Repositories.pick(options, path, repo_opts[:create])
         end
       end
     end
