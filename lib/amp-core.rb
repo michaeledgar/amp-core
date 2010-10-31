@@ -1,4 +1,6 @@
 module Amp
+  module Core
+  end
   module Support
   end
 end
