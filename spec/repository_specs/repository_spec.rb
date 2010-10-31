@@ -12,7 +12,7 @@
 #                                                                #
 ##################################################################
 
-require 'amp-core/repository/repository.rb'
+require File.expand_path(File.join(File.dirname(__FILE__), 'spec_helper'))
 
 describe Amp::Core::Repositories do
   describe '#pick' do
