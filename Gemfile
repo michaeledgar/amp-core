@@ -1,6 +1,8 @@
 # This is an install-only file - it's not used by the application
 source "http://rubygems.org"
 
+gem 'haml'
+
 group :local do
    path '..' do
      #gem 'amp-front'
