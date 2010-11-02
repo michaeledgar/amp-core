@@ -24,6 +24,8 @@ class Amp::Plugins::Core < Amp::Plugins::Base
         end
         module Support
           autoload :RootedOpener, 'amp-core/support/rooted_opener.rb'
+          autoload :StringUtils,  'amp-core/support/string_utils.rb'
+        end
       end
     end
   }
