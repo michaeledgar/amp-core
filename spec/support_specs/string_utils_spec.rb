@@ -28,7 +28,17 @@ describe Amp::Core::Support::StringUtils do
   
   describe '#unhexlify' do
     it 'converts a few hex bytes to binary' do
-      Amp::Core::Support::StringUtils.unhexlify("abcd").should == "\xab\xcd"
+      Amp::Core::Support::StringUtils.unhexlify('abcd').should == "\xab\xcd"
+    end
+  end
+  
+  describe '#hexlify' do
+    it 'converts text data to its hex form' do
+      Amp::Core::Support::StringUtils.hexlify('ABCD').should == '41424344'
+    end
+    
+    it 'converts binary data to its hex form' do
+      Amp::Core::Support::StringUtils.hexlify('ABCD').should == '41424344'
     end
   end
 end

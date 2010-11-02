@@ -22,6 +22,16 @@ module Amp
       module StringUtils
         module_function
         
+        # Converts this text into hex. each letter is replaced with
+        # it's hex counterpart 
+        def hexlify(src)
+          str = ""
+          src.each_byte do |i|
+            str << i.to_s(16).rjust(2, "0")
+          end
+          str
+        end
+        
         if RUBY_VERSION < "1.9"
           # Returns the value of the first byte of the string.
           #
