@@ -11,6 +11,7 @@
 #  © Michael J. Edgar and Ari Brown, 2009-2010                   #
 #                                                                #
 ##################################################################
+require 'digest'
 
 module Amp
   module Core
@@ -33,7 +34,7 @@ module Amp
           # Converts a string of hex into the binary values it represents. This is used for
           # when we store a node ID in a human-readable format, and need to convert it back.
           #
-          # @example "DEADBEEF".unhexlify #=> "\336\255\276\357"
+          # @example StringUtils.unhexlify("DEADBEEF") #=> "\336\255\276\357"
           # @return [String] the string decoded from hex form
           def unhexlify(src)
             str = "\000" * (src.size/2)
