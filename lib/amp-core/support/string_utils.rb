@@ -21,14 +21,21 @@ module Amp
       module StringUtils
         module_function
         
-        # Returns the value of the first byte of the string.
-        #
-        # @return [Fixnum, 0 <= x < 256] The value of the first byte.
-        def ord(str)
-          raise ArgumentError.new('empty string') if str.empty?
-          if RUBY_VERSION < "1.9"
-          then str[0]
-          else str.ord
+        if RUBY_VERSION < "1.9"
+          # Returns the value of the first byte of the string.
+          #
+          # @return [Fixnum, 0 <= x < 256] The value of the first byte.
+          def ord(str)
+            raise ArgumentError.new('empty string') if str.empty?
+            str[0]
+          end
+        else
+          # Returns the value of the first byte of the string.
+          #
+          # @return [Fixnum, 0 <= x < 256] The value of the first byte.
+          def ord(str)
+            raise ArgumentError.new('empty string') if str.empty?
+            str.ord
           end
         end
       end
