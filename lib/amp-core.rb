@@ -8,6 +8,7 @@ end
 class Amp::Plugins::Core < Amp::Plugins::Base
   # this is necessary to prevent loading when #load! isn't called.
   @loader = lambda {
+    $:.unshift(File.expand_path(File.dirname(__FILE__)))
     module ::Amp
       module Core
         module Repositories
@@ -23,8 +24,10 @@ class Amp::Plugins::Core < Amp::Plugins::Base
           autoload :CommonVersionedFileMethods,'amp-core/repository/abstract/common_methods/versioned_file.rb'
         end
         module Support
-          autoload :RootedOpener, 'amp-core/support/rooted_opener.rb'
-          autoload :StringUtils,  'amp-core/support/string_utils.rb'
+          autoload :EncodingUtils,  'amp-core/support/encoding_utils.rb'
+          autoload :Platform,       'amp-core/support/platform_utils.rb'
+          autoload :RootedOpener,   'amp-core/support/rooted_opener.rb'
+          autoload :StringUtils,    'amp-core/support/string_utils.rb'
         end
       end
     end
