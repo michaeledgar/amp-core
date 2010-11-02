@@ -5,11 +5,10 @@ module Amp
   end
 end
 
-
 class Amp::Plugins::Core < Amp::Plugins::Base
   # this is necessary to prevent loading when #load! isn't called.
   @loader = lambda {
-    module Amp
+    module ::Amp
       module Core
         module Repositories
           autoload :GenericRepoPicker,         "amp-core/repository/generic_repo_picker.rb"
@@ -39,7 +38,7 @@ class Amp::Plugins::Core < Amp::Plugins::Base
     require 'amp-core/command_ext/repository_loading'
     require 'amp-core/repository/repository.rb'
     require 'amp-core/repository/generic_repo_picker.rb'
-    Amp::Support.class_eval do
+    ::Amp::Support.class_eval do
       autoload :Template,                  "amp-core/templates/template.rb"
     end
     self.class.loader.call
