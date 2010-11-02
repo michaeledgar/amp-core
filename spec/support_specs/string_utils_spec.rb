@@ -25,4 +25,10 @@ describe Amp::Core::Support::StringUtils do
       Amp::Core::Support::StringUtils.ord('™').should == 226
     end
   end
+  
+  describe '#unhexlify' do
+    it 'converts a few hex bytes to binary' do
+      Amp::Core::Support::StringUtils.unhexlify("abcd").should == "\xab\xcd"
+    end
+  end
 end

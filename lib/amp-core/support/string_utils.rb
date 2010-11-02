@@ -29,6 +29,22 @@ module Amp
             raise ArgumentError.new('empty string') if str.empty?
             str[0]
           end
+          ##
+          # Converts a string of hex into the binary values it represents. This is used for
+          # when we store a node ID in a human-readable format, and need to convert it back.
+          #
+          # @example "DEADBEEF".unhexlify #=> "\336\255\276\357"
+          # @return [String] the string decoded from hex form
+          def unhexlify(src)
+            str = "\000" * (src.size/2)
+            c = 0
+            (0..src.size-2).step(2) do |i|
+              hex = src[i,2].to_i(16)
+              str[c] = hex
+              c += 1
+            end
+            str
+          end
         else
           # Returns the value of the first byte of the string.
           #
@@ -37,6 +53,21 @@ module Amp
             raise ArgumentError.new('empty string') if str.empty?
             str.ord
           end
+
+          def unhexlify(str)
+            str = "\000" * (src.size/2)
+            c = 0
+            (0..src.size-2).step(2) do |i|
+              hex = src[i,2].to_i(16)
+              str[c] = hex.chr
+              c += 1
+            end
+            str
+          end
+        end
+        
+        def sha1(str)
+          Digest::SHA1.new.update(str)
         end
       end
     end
