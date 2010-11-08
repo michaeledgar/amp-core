@@ -27,7 +27,7 @@ class Amp::Plugins::Core < Amp::Plugins::Base
           autoload :EncodingUtils,  'amp-core/support/encoding_utils.rb'
           autoload :Platform,       'amp-core/support/platform_utils.rb'
           autoload :RootedOpener,   'amp-core/support/rooted_opener.rb'
-          autoload :HexString,      'amp-core/support/string_utils.rb'
+          autoload :HexString,      'amp-core/support/hex_string.rb'
         end
       end
     end
