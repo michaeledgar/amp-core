@@ -1,9 +1,8 @@
-puts $LOAD_PATH
 $LOAD_PATH.unshift(File.dirname(__FILE__))
 $LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))
 
 require '../amp-front/lib/amp-front'
-require 'amp-core/plugin'
+require 'amp-core/amp_plugin'
 
 describe "plugin" do
   it "should have a plugin constant: Amp::Plugins::Core" do
