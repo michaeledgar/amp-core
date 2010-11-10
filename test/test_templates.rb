@@ -18,7 +18,6 @@ $LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))
 require 'rubygems'
 require 'amp-front'
 require 'amp-core'
-Amp::Plugins::Core.new.load!
 
 class TestTemplates < Test::Unit::TestCase
   include Amp::Support
