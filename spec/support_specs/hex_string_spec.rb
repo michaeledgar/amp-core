@@ -23,6 +23,14 @@ describe Amp::Core::Support::HexString do
       Subject.from_bin('A').should be_kind_of(Subject)
     end
 
+    it 'is compareable' do
+      Subject.from_bin('A').should == Subject.from_bin('A')
+    end
+
+    it 'is compareable and right' do
+      Subject.from_bin('A').should_not == Subject.from_bin('B')
+    end
+
     describe '#ord' do
       it 'raises an ArgumentError on an empty string' do
         lambda { Subject.from_bin('').ord }.should raise_error(ArgumentError)

@@ -50,6 +50,11 @@ module Amp
           @hex = hex_part
         end
 
+        def <=>(other)
+          to_s <=> other.to_s
+        end
+        include Comparable
+
         # Return raw binary data
         def to_bin
           @binary ||= unhexlify
