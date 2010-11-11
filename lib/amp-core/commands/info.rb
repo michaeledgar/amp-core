@@ -1,4 +1,4 @@
-Amp::Command.create('root') do |c|
+Amp::Command.create('info') do |c|
   c.has_repo
   c.validates_argument_count(:minimum => 1)
   c.on_call do
