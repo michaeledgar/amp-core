@@ -22,12 +22,12 @@ module Amp
       class HexString
         # Construct a HexString
         def self.from_bin(bin)
-          new(bin, nil)
+          HexString === bin ? bin : new(bin, nil)
         end
 
         # Construct a HexString
         def self.from_hex(hex)
-          new(nil, hex)
+          HexString === hex ? hex : new(nil, hex)
         end
 
         # Mainly internal/test helper method; change the encoding in 1.9
