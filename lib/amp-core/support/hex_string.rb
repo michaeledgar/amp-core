@@ -78,6 +78,10 @@ module Amp
           hex
         end
         
+        def empty?
+          to_bin.size > 0
+        end
+        
         if RUBY_VERSION < "1.9"
           # Returns the value of the first byte of the string.
           #
