@@ -3,7 +3,11 @@ puts "Loading amp-core..."
 require 'amp-core/command_ext/repository_loading'
 require 'amp-core/repository/repository.rb'
 require 'amp-core/repository/generic_repo_picker.rb'
-require 'amp-core/commands/root.rb'
+
+Dir[File.join(File.dirname(__FILE__), 'amp-core', 'commands', '**', '*.rb')].each do |file|
+  require file
+end
+
 module Amp
   module Support
     autoload :Template,       'amp-core/templates/template.rb'
