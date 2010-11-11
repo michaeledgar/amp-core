@@ -3,7 +3,7 @@ puts "Loading amp-core..."
 require 'amp-core/command_ext/repository_loading'
 require 'amp-core/repository/repository.rb'
 require 'amp-core/repository/generic_repo_picker.rb'
-
+require 'amp-core/commands/root.rb'
 module Amp
   module Support
     autoload :Template,       'amp-core/templates/template.rb'
