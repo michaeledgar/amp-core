@@ -79,7 +79,7 @@ module Amp
         end
         
         def empty?
-          to_bin.size > 0
+          to_bin.size == 0
         end
         
         if RUBY_VERSION < "1.9"
