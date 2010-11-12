@@ -1,0 +1,3 @@
+# Default: load all rubygems plugins.
+
+Amp::Plugins::Base.load_rubygems_plugins

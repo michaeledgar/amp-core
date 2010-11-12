@@ -82,7 +82,7 @@ module Amp
             SYSTEM[:endian] = :big
           else
             SYSTEM[:endian] = :little
-          end   
+          end
         end
 
         determine_endianness
